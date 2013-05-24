@@ -17,6 +17,10 @@ Class TimeAgo extends \DateTime
      */
     private $diff;
 
+    /**
+     * @param DateTime $fromTime
+     * @param DateTimeZone $zone
+     */
     public function __construct(\DateTime $fromTime, \DateTimeZone $zone = null)
     {
         parent::__construct(null, $zone);
@@ -24,6 +28,17 @@ Class TimeAgo extends \DateTime
         $this->diff = $this->diff($this->fromTime);
     }
 
+    /**
+     * @param DateInterval $diff
+     */
+    public function setInterval(\DateInterval $diff)
+    {
+        $this->diff = $diff;
+    }
+
+    /**
+     * @return string
+     */
     private function toString()
     {
         $result = '';
@@ -46,6 +61,9 @@ Class TimeAgo extends \DateTime
         return $result . ' ago';
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->toString();
