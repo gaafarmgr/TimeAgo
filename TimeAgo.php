@@ -71,9 +71,4 @@ Class TimeAgo extends \DateTime
     {
         return $this->toString();
     }
-
-    public function format($format)
-    {
-        return $this->diff->format($format);
-    }
 }
