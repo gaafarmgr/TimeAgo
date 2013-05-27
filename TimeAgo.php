@@ -52,13 +52,16 @@ Class TimeAgo extends \DateTime
         if($this->diff->d){
             $result .= $this->diff->d . ($this->diff->d > 1 ? ' days ' : ' day ');
         }
+        if($this->diff->h){
+            $result .= $this->diff->h . ($this->diff->h > 1 ? ' hours ' : ' hour ');
+        }
         if($this->diff->i){
             $result .= $this->diff->i . ($this->diff->i > 1 ? ' minutes ' : ' minute ');
         }
         if($this->diff->s){
             $result .= $this->diff->s . ($this->diff->s > 1 ? ' seconds ' : ' second ');
         }
-        return $result . ' ago';
+        return $result;
     }
 
     /**
@@ -67,5 +70,10 @@ Class TimeAgo extends \DateTime
     public function __toString()
     {
         return $this->toString();
+    }
+
+    public function format($format)
+    {
+        return $this->diff->format($format);
     }
 }
