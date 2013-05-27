@@ -5,7 +5,7 @@ TimeAgo generates 'friendly' elapsed time sentences, based on PHPs [DateTime](ht
 ##usage
 Include the file into your project and instantiate, passing in a DateTime object representing a time in the past:-
 
-    include 'TimeAgo.php
+    include 'TimeAgo.php';
     $pastTime = new \DateTime('Some time in the past);
     $timeAgo = new TimeAgo($pastTime);
     echo $timeAgo . " ago<br/>\n";
